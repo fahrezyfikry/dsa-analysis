@@ -11,8 +11,8 @@ class Barang {
 }
 
 public class TugasPersonal1Soal1 {
+  static Barang[] inventaris = new Barang[10];
   public static void main(String[] args) {
-    Barang[] inventaris = new Barang[10];
     inventaris[0] = new Barang("Pensil", 50, 200);
     inventaris[1] = new Barang("Buku", 30, 15000);
     inventaris[2] = new Barang("Penghapus", 20, 500);
