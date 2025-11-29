@@ -11,14 +11,16 @@ class Barang {
 }
 
 public class TugasPersonal1Soal1 {
+  static int latestInventarisIndex = 0;
   static Barang[] inventaris = new Barang[10];
+
   public static void main(String[] args) {
-    inventaris[0] = new Barang("Pensil", 50, 200);
-    inventaris[1] = new Barang("Buku", 30, 15000);
-    inventaris[2] = new Barang("Penghapus", 20, 500);
+    inventaris[latestInventarisIndex++] = new Barang("Pensil", 50, 200);
+    inventaris[latestInventarisIndex++] = new Barang("Buku", 30, 15000);
+    inventaris[latestInventarisIndex++] = new Barang("Penghapus", 20, 500);
 
     System.out.println("Inventaris Toko:");
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < latestInventarisIndex; i++) {
       Barang barang = inventaris[i];
       System.out.println(i + 1 + ". Nama: " + barang.nama + ", Jumlah Stok: " + barang.jumlahStok + ", Harga: " + barang.harga);
     }
