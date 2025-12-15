@@ -6,25 +6,39 @@ class Node<T> {
         this.value = value;
         this.next = next;
     }
-
-    void print() {
-      Node <T> next = this;
-
-      do {
-        System.out.println("Value: " + next.value);
-        next = next.next;
-      } while (next != this);
-    }
 }
 
-public class CircularLinkedList {
+class CircularLinkedList<T> {
+  Node<T> head;
+  Node<T> tail;
 
+  void push(T value) {
+    Node<T> newNode = new Node<T>(value, head);
+    if (head == null) {
+      head = newNode;
+      tail = head;
+    } else {
+      tail.next = newNode;
+      tail = tail.next;
+    }
+  }
+
+  void print() {
+    Node <T> next = head;
+
+    do {
+      System.out.println("Value: " + next.value);
+      next = next.next;
+    } while (next != head);
+  }
+}
+
+public class CircularLinkedListMain {
   public static void main(String[] args) {
-    Node<Integer> thirdNode = new Node<Integer>(3, null);
-    Node<Integer> secondNode = new Node<Integer>(2, thirdNode);
-    Node<Integer> firstNode = new Node<Integer>(1, secondNode);
-    thirdNode.next = firstNode;
-
-    firstNode.print();
+    CircularLinkedList<Integer> circularLinkedList = new CircularLinkedList<Integer>();
+    circularLinkedList.push(1);
+    circularLinkedList.push(2);
+    circularLinkedList.push(3);
+    circularLinkedList.print();
   }
 }
