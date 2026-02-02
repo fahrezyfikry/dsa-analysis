@@ -1,20 +1,20 @@
-class Node<T> {
+class NodeI<T> {
     T value;
-    Node<T> next;
+    NodeI<T> next;
 
-    Node(T value, Node<T> next) {
+    NodeI(T value, NodeI<T> next) {
       this.value = value;
       this.next = next;
     }
 }
 
-class SingleLinkedList<T> {
-  Node<T> head;
-  Node<T> tail;
+class SingleLinkedListI<T> {
+  NodeI<T> head;
+  NodeI<T> tail;
   int length = 0;
 
   void push(T value) {
-    Node<T> newNode = new Node<T>(value, null);
+    NodeI<T> newNode = new NodeI<T>(value, null);
     if (head == null) {
       head = newNode;
       tail = head;
@@ -26,18 +26,18 @@ class SingleLinkedList<T> {
   }
 
   void insertAtHead(T value) {
-    head = new Node<T>(value, head);
+    head = new NodeI<T>(value, head);
     length++;
   }
 
   void insertAtTail(T value) {
-    tail.next = new Node<T>(value, null);
+    tail.next = new NodeI<T>(value, null);
     tail = tail.next;
     length++;
   }
 
   void insertAfterIndex(int index, T value) {
-    Node <T> next = head;
+    NodeI<T> next = head;
     int i = 0;
     while (i != index && i < length){
       next = next.next;
@@ -47,13 +47,13 @@ class SingleLinkedList<T> {
     if (next == null) {
       push(value);
     } else {
-      next.next = new Node<T>(value, next.next);
+      next.next = new NodeI<T>(value, next.next);
       length++;
     }
   }
 
   void print() {
-    Node <T> next = head;
+    NodeI<T> next = head;
 
     while (next != null){
       System.out.println("Value: " + next.value);
@@ -64,7 +64,7 @@ class SingleLinkedList<T> {
 
 public class InsertSingleLinkedListMain {
   public static void main(String[] args) {
-    SingleLinkedList<Integer> singleLinkedList = new SingleLinkedList<Integer>();
+    SingleLinkedListI<Integer> singleLinkedList = new SingleLinkedListI<Integer>();
 
     System.out.println("Init");
     singleLinkedList.push(1);

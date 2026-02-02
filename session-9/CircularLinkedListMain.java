@@ -1,19 +1,19 @@
-class Node<T> {
+class NodeC<T> {
     T value;
-    Node<T> next;
+    NodeC<T> next;
 
-    Node(T value, Node<T> next) {
+    NodeC(T value, NodeC<T> next) {
         this.value = value;
         this.next = next;
     }
 }
 
 class CircularLinkedList<T> {
-  Node<T> head;
-  Node<T> tail;
+  NodeC<T> head;
+  NodeC<T> tail;
 
   void push(T value) {
-    Node<T> newNode = new Node<T>(value, head);
+    NodeC<T> newNode = new NodeC<T>(value, head);
     if (head == null) {
       head = newNode;
       tail = head;
@@ -24,7 +24,7 @@ class CircularLinkedList<T> {
   }
 
   void print() {
-    Node <T> next = head;
+    NodeC<T> next = head;
 
     do {
       System.out.println("Value: " + next.value);
